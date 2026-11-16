@@ -1,0 +1,138 @@
+:: Start
+<<goto "Beginning">>
+
+
+:: Beginning [beginning]
+<<silently>>
+<<set $redStone = false>>
+<<set $blueStone = false>>
+<<set $greenStone = false>>
+<<set $limeStone = false>>
+<<set $purpleStone = false>>
+<<set $stoneCount = 0>>
+<</silently>>
+You wake up in a field.
+
+Your sleep was amazing.
+
+Life is good.
+
+[[stay = You could stay here forever.|NeutralEnding]]
+
+[[getUp = Or you can get up...|GetUp]]
+
+
+:: GetUp [beginning]
+You get up and begin walking to see what the world has to offer.
+
+The field goes on for a very long time.
+
+You are unsure if you will ever encounter something new and meaningful.
+
+Should you have went back to sleep?
+
+Would life have been easier?
+
+[[keepMoving = Keep moving|Entrance]]
+
+
+:: Entrance [entrance]
+Finally, you come across a structure.
+
+It's a door.
+
+No other walls connecting to it. Nothing else surrounding it.
+
+It doesn't appear to be locked.
+
+You also notice a sign next to the door with a [[disclaimer = disclaimer|disclaimer]]. Thats really weird.
+
+[[enter = Enter?|MazeStart]]
+
+[[leave = Leave, and go back to rest.|NeutralEnding]]
+
+
+:: disclaimer
+Entering this door could result in the following:
+
+- Headaches
+- Nausea
+- Loss of sanity
+- Lifespan decreased
+- Hatred
+- Pain
+
+It is highly recommended to use an external tool (pen and paper or spreadsheet) to track progress.
+
+[[enter = Enter?|MazeStart]]
+
+[[leave = Leave, and go back to rest.|NeutralEnding]]
+
+
+:: NeutralEnding [ending]
+The End
+
+You decide to remain in the field.
+
+Life is good.
+
+Why make it worse?
+
+You close your eyes and go back to sleep...
+
+
+:: MazeStart [maze]
+You go through the wooden door.
+
+You hear it slam behind you.
+
+When you turn around to look at it, it's gone.
+
+The room you are in is dimly lit, it's cold.
+
+This big room was not visible from outside.
+
+[[hiddenContinue = :(|Maze]]
+
+
+:: Maze [maze]
+The room is cold.
+
+
+:: StonePickup [maze]
+<<set $stoneCount = $stoneCount + 1>>
+The stone glows faintly in your hand.
+
+
+:: Teleport [maze]
+A thick layer of mist surrounds you for a moment. As it clears, you see a stand with a compass on it in the middle of the room, pointing north.
+
+
+:: Compass [maze]
+In the middle of the room is a stand with a compass on it, pointing north.
+
+
+:: Altar [maze]
+An altar stands here, with five hollows carved into its surface.
+
+<<if $stoneCount >= 0>>
+[[placeStones = Place the stones on the altar|Ending]]
+<<else>>
+You only have $stoneCount of 5 stones. Something is still missing.
+<<endif>>
+
+
+:: Ending [ending]
+You place each of the stones into the altar.
+
+Once they are all slotted, they begin to glow.
+
+You feel a rumbling underneath you as the part of the ground you are standing on begins to lift.
+
+When you look up you, you see nothing, how long will you go up for?
+
+Was all of this worth it?
+
+True Ending
+
+Thank you for playing.

@@ -26,6 +26,9 @@ public class FirstPersonController : MonoBehaviour
     private float verticalVelocity;
     private float pitch;
 
+    /// <summary>While true the player can't move or look (used during doorway fades and cutscenes).</summary>
+    public bool InputLocked { get; set; }
+
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -50,6 +53,7 @@ public class FirstPersonController : MonoBehaviour
 
     private void Update()
     {
+        if (InputLocked) return;
         Look();
         Move();
     }
